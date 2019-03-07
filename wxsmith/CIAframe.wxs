@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="CIAFrame">
+		<icon>C:\Librerias desarrollo\CIA\img\cia_logo.png</icon>
+		<size>1034,472</size>
+		<id_arg>0</id_arg>
+		<object class="wxTreebook" name="ID_treeMain" variable="tree_main" member="yes">
+			<pos>96,248</pos>
+			<object class="treebookpage">
+				<object class="wxNotebook" name="ID_NOTEBOOK1" variable="panels_main" member="yes">
+					<pos>329,204</pos>
+				</object>
+				<label>Raíz</label>
+			</object>
+		</object>
+		<object class="wxMenuBar" variable="menuMain" member="no">
+			<object class="wxMenu" variable="Menu1" member="yes">
+				<label>&amp;Archivo</label>
+				<object class="wxMenuItem" name="ID_btnAbrirProyecto" variable="item_abrir" member="yes">
+					<label>Abrir proyecto</label>
+					<bitmap>C:\Librerias desarrollo\CIA\img\folder_page.png</bitmap>
+				</object>
+				<object class="wxMenuItem" name="ID_btnNuevoProyecto" variable="item_nuevo" member="yes">
+					<label>Nuevo proyecto</label>
+					<bitmap>C:\Librerias desarrollo\CIA\img\application_add.png</bitmap>
+					<handler function="Onitem_nuevoSelected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="ID_btnNuevoArchivo" variable="item_nuevoArchivo" member="yes">
+					<label>Nuevo Archivo</label>
+					<bitmap>C:\Librerias desarrollo\CIA\img\page_add.png</bitmap>
+				</object>
+				<object class="wxMenuItem" name="ID_btnCerrarProyecto" variable="item_cerrar" member="yes">
+					<label>Cerrar proyecto</label>
+					<bitmap>C:\Librerias desarrollo\CIA\img\page.png</bitmap>
+				</object>
+				<object class="wxMenuItem" name="ID_guardarProyecto" variable="item_guardarProyecto" member="yes">
+					<label>Guardar</label>
+					<bitmap>C:\Librerias desarrollo\CIA\img\script_save.png</bitmap>
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="ID_btnSalir" variable="item_salir" member="yes">
+					<label>Salir</label>
+					<bitmap>C:\Librerias desarrollo\CIA\img\door_out.png</bitmap>
+					<handler function="Onitem_salirSelected" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu2" member="yes">
+				<label>Depurar</label>
+				<object class="wxMenuItem" name="ID_iniciarPrograma" variable="item_iniciarPrograma" member="yes">
+					<label>Iniciar programa</label>
+					<bitmap>C:\Librerias desarrollo\CIA\img\control_play_blue.png</bitmap>
+				</object>
+				<object class="wxMenuItem" name="ID_detenerPrograma" variable="item_detenerPrograma" member="yes">
+					<label>Detener programa</label>
+					<bitmap>C:\Librerias desarrollo\CIA\img\control_stop_blue.png</bitmap>
+				</object>
+			</object>
+		</object>
+		<object class="wxToolBar" name="ID_toolBar_main" variable="toolBar_main" member="yes">
+			<object class="separator" />
+			<object class="tool" name="ID_btnCorrer" variable="ToolBarItem1" member="yes">
+				<label></label>
+				<bitmap>C:\Librerias desarrollo\CIA\img\control_play_blue.png</bitmap>
+				<bitmap2>C:\Librerias desarrollo\CIA\img\control_play.png</bitmap2>
+				<tooltip>Iniciar programa</tooltip>
+			</object>
+			<object class="tool" name="ID_btnDetener" variable="ToolBarItem2" member="yes">
+				<label></label>
+				<bitmap>C:\Librerias desarrollo\CIA\img\control_stop_blue.png</bitmap>
+				<bitmap2>C:\Librerias desarrollo\CIA\img\control_stop.png</bitmap2>
+			</object>
+		</object>
+		<object class="wxFileDialog" variable="FileDialog1" member="yes">
+			<message>Archivo CIA</message>
+			<default_file>*.ala</default_file>
+		</object>
+	</object>
+</wxsmith>
