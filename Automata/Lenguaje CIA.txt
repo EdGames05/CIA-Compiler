@@ -1,0 +1,132 @@
+-------------------- Definir macros ----------------------
+-> definir <nombre_macro> <valor_macro>
+
+---------------- Importar cabeceras --------------------
+
+-> importar "nombre_archivo.cia"
+# importar archivo dentro de carpeta
+-> importar "carpeta.nombre_archivo.cia"
+# importar todos los archivos de la carpeta
+-> importar "carpeta.*"
+
+---------------- Declaración de tipos -------------------
+
+-> entero <variable> = <valor>
+-> cadena <variable> = "<valor>"
+-> booleano <variable> = <valor>
+-> real <variable> = <valor>.<valor>
+-> const tipo <variable> = <valor>
+-> carac <variable> = '<valor>'
+# void = nada, solo disponible para paso de parametros
+-> nada <variable>
+-> puntero <tipo> <nombre_variable> = <valor>
+
+--------------- Declaración de arreglo --------------------
+# Arreglo siempre será dinamico
+-> arreglo <tipo> <variable> = {x,x,x,x,x,x,x,x,x,x,x,x,x}
+-> puntero arreglo <tipo> <variable> = {x,x,x,x,x,x,x,x,x,x,x,x,x}
+# Arreglo de clases o estructuras
+-> arreglo <clase> | <estructura> <nombre> = {->(constructor),->(constructor)}
+-> arreglo puntero <clase> | <estructura> <nombre> = {->(constructor),->(constructor)}
+-> arreglo puntero <clase>(tipo) | <estructura>(tipo) <nombre>
+
+--------------- Declaración de funciones -----------------
+
+-> tipo <nombre_funcion>(parametros x, parametros_por_referencia &x) {instrucciones}
+# Funciones lambda
+-> lambda(parametros del alcance) (parametros x, parametros &x) {instrucciones}
+# Funciones inline
+-> enlinea <tipo> (parametros x, parametros &x){instrucciones}
+# Funciones que devuelven un puntero
+-> puntero <tipo> (parametros x, parametros &x){instrucciones}
+
+---------- Declaración y llamada de clases y estructuras ----------
+
+-> Clase <nombre_clase> (parentesis si la clase tiene un typename | class) : <nombre_clase_hererada>,.....
+     {
+	protejida | publica | privada <tipo> <nombre_funcion>(parametros x, parametros &x){instrucciones}
+	protejida | publica | privada <tipo> <nombre_variable>
+	# crear funciones u objetos virtuales
+	protejida | publica | privada virtual <tipo> <nombre_funcion>(parametros x, parametros &x){instrucciones}
+	protejida | publica | privada virtual <tipo> <nombre_variable>
+	# crear funciones en linea
+	protejida | publica | privada enlinea <tipo> <nombre_funcion>(parametros x, parametros &x){instrucciones}
+     }
+
+-> Instanciar clase = <clase> <nombre_clase>
+-> Instanciar clase con typename T | class T = <clase>(tipo) <nombre_clase>(constructor)
+# Automaticamente se convierte en un puntero a la hora de compilar
+-> Si quieren llamar y crear el objeto es = <clase>(tipo) <nombre_clase>->(constructor)
+-> Si quieren llamar y crear el objeto es otra forma = <nombre_clase_instanciada>->(constructor)
+
+-> Lo mismo es para estructuras
+-> estructura
+
+---------------------------- Definición de punteros ---------------------------------
+
+-> <const> ? <tipo> | <clase> puntero <nombre_variable>
+
+--------------------------- Operadores básicos -------------------------------------
+
+-> <tipo> | <nombre_funcion> + <tipo> | <nombre_funcion> = suma
+-> <tipo> | <nombre_funcion> - <tipo> | <nombre_funcion> = resta
+-> <tipo> | <nombre_funcion> * <tipo> | <nombre_funcion> = multiplicacion
+-> <tipo> | <nombre_funcion> / <tipo> | <nombre_funcion> = división
+-> <tipo> | <nombre_funcion> ** <tipo> | <nombre_funcion> = potencia
+-> <tipo> | <nombre_funcion> /*<tipo raiz (entero)>*/ <tipo> | <nombre_funcion> = raiz
+-> <tipo> | <nombre_funcion> > <tipo> | <nombre_funcion> = mayor que
+-> <tipo> | <nombre_funcion> >= <tipo> | <nombre_funcion> = mayor o igual que
+-> <tipo> | <nombre_funcion> < <tipo> | <nombre_funcion> = igual que
+-> <tipo> | <nombre_funcion> <= <tipo> | <nombre_funcion> = menor o igual que
+-> <tipo> | <nombre_funcion> || <tipo> | <nombre_funcion> = "or"
+-> <tipo> | <nombre_funcion> | <tipo> | <nombre_funcion> = operador de seleccion opcional
+-> <tipo> | <nombre_funcion> && <tipo> | <nombre_funcion> = "and" y también de selección devolviendo true o false
+
+----------------------- Estructuras de seleccion ------------------------------
+
+#condicion if
+-> si (condicion) {instrucciones} else {instrucciones}
+-> buscar <valor>
+        entra <valor>:{instrucciones}
+        entra <valor>:{instrucciones}
+    contrario:{instrucciones}
+
+---------------------------------- Bucles ----------------------------------------
+
+# for
+-> para (inicio,fin,cambio){instrucciones}
+#while
+-> mientras(condicion){instrucciones}
+# do while
+-> hacer{instrucciones}mientras(condicion)
+# etiqueta
+-> etiqueta->{instrucciones}
+# Instrucciones para finalizar un bucle
+-> salir
+
+--------------------------------- Palabra reservadas de opciones -----------------------------
+
+# hacer un return
+-> <tipo> <nombre_funcion>(){instrucciones......... retornar}
+# redefine una variables o funcion
+-> redefinir <tipo> | <nombre_funcion> | <objeto>
+
+------------------------ Condiciones definidas con macros --------------------
+
+-> #si condicion
+	instrucciones
+-> #else condicion
+	instrucciones
+
+--------------------------------- Otros ----------------------------------------
+
+#Ejecutar codigo ensamblador
+-> ensamblador("<codigo>")
+-> imprimir("cadena")
+-> concatenar = cadena + cadena
+# Función principal
+-> principal(parametros){instrucciones}
+# comentario de una linea
+-> // comentario
+#comentario multilinea
+-> ## comentario ##
