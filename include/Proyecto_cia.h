@@ -8,12 +8,13 @@ using namespace std;
 class Proyecto_cia
 {
     private:
+
         struct Datos{
-            char nombre_proyecto[255];
-            char ruta_proyecto[2048];
-            const short int codigo_archivos = 1;
-            int num_archivos_incluidos;
-        };
+                char nombre_proyecto[255];
+                char ruta_proyecto[2048];
+                const short int codigo_archivos = 1;
+                int num_archivos_incluidos;
+            };
 
         struct Archivos{
             char nombre_archivo[255];
@@ -25,6 +26,7 @@ class Proyecto_cia
         Datos datos;
         Archivos archivos;
         AList<Archivos> lista_archivos;
+        AList<Datos> lista_datos;
         FILE *archi;
 
         /*'''''''''''''''''''''''''' Funciones privada '''''''''''''''''''''''''''''''''''*/
@@ -37,6 +39,14 @@ class Proyecto_cia
         std::string get_nombreArchivo();
         std::string get_rutaArchivo();
         bool nuevo_proyecto(const char* nombre_proyecto, const char* nombre_archivo, const char* directorio);
+        AList<Archivos> get_list_archivos();
+        AList<Datos> get_list_datos_archivos();
+        //''''''''''''''''''''''''' Enumeracion para buscar listas ''''''''''''''''''''''''''''''''''''''''''
+        enum TiposListas{
+            LISTA_ARCHIVOS,
+            LISTA_DATOS
+        };
+        //'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 };
 

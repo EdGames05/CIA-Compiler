@@ -210,7 +210,7 @@ void AList<T>::borrar_todosElementos(){
 }
 
 template<class T>
-AList<T> AList<T>::operator=(const AList<T> lista){
+AList<T> AList<T>::operator=(AList<T> lista){
     if(lista.get_tamano() > 0){
         this->borrar_todosElementos();
         for(unsigned int i = 0; i < lista.get_tamano(); i++){

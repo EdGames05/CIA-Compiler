@@ -1582,7 +1582,7 @@
 
 1544395208 c:\wxwidgets-3.1.2\include\wx\qt\menu.h
 
-1551932892 source:c:\librerias desarrollo\cia\ciamain.cpp
+1552244028 source:c:\librerias desarrollo\cia\ciamain.cpp
 	"CIAMain.h"
 	<wx/msgdlg.h>
 	<wx/bitmap.h>
@@ -1966,16 +1966,19 @@
 
 1544395208 c:\wxwidgets-3.1.2\include\wx\itemid.h
 
-1551931769 c:\librerias desarrollo\cia\include\proyecto_cia.h
+1552963426 c:\librerias desarrollo\cia\include\proyecto_cia.h
 	"../AList.h"
 	<iostream>
 
-1551926547 c:\librerias desarrollo\cia\alist.h
+1552964122 c:\librerias desarrollo\cia\alist.h
 
-1551926518 source:c:\librerias desarrollo\cia\src\proyecto_cia.cpp
+1551933078 source:c:\librerias desarrollo\cia\src\proyecto_cia.cpp
 	"Proyecto_cia.h"
+	<fstream>
+	<iostream>
 	<windows.h>
 	<stdio.h>
+	<conio.h>
 	<ctype.h>
 	<stdlib.h>
 	<cstring>

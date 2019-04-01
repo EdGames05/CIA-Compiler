@@ -1,6 +1,7 @@
 #define ARCHI_ESCRITURA_BINARIA "rb+"
 #define ARCHI_LECTURA_BINARIA "rb"
 #define CREAR_ARCHIVO "a"
+#define ARCHI_ESCRITURA_TEXTO_PLANO "a+t"
 
 
 #include "Proyecto_cia.h"
@@ -103,13 +104,26 @@ bool Proyecto_cia::nuevo_proyecto(const char* nombre_proyecto, const char* nombr
 
     string archivo_textoPlano(directorio);
     archivo_textoPlano += "/" + string(nombre_archivo);
-    archi = fopen(archivo_textoPlano.c_str(),"a+t");
+    archi = fopen(archivo_textoPlano.c_str(),ARCHI_ESCRITURA_TEXTO_PLANO);
 
-    fputs("// Función principal \n \nprincipal(){ \n",archi);
-    fputs("\t print(\"Hola mundo de CIA...\") \n",archi);
-    fputs("}",archi);
+    const char* plantilla_codigo = "// Función principal \n \nprincipal(){ \n \t print(\"Hola mundo de CIA...\") \n \t system(\"pause\") \n }";
+
+    fputs(plantilla_codigo,archi);
 
     fclose(archi);
+
+    lista_archivos.insertar(archivos);
+    lista_datos.insertar(datos);
+
     return true;
 }
+
+AList<Proyecto_cia::Archivos> Proyecto_cia::get_list_archivos(){
+    return this->lista_archivos;
+}
+
+AList<Proyecto_cia::Datos> Proyecto_cia::get_list_datos_archivos(){
+    return this->lista_datos;
+}
+
 /*''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/

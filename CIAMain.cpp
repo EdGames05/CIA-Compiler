@@ -79,7 +79,6 @@ CIAFrame::CIAFrame(wxWindow* parent,wxWindowID id)
     }
     tree_main = new wxTreebook(this, ID_treeMain, wxPoint(96,248), wxDefaultSize, wxBK_DEFAULT, _T("ID_treeMain"));
     panels_main = new wxNotebook(tree_main, ID_NOTEBOOK1, wxPoint(329,204), wxDefaultSize, 0, _T("ID_NOTEBOOK1"));
-    tree_main->AddPage(panels_main, _("Raíz"), false);
     menuMain = new wxMenuBar();
     Menu1 = new wxMenu();
     item_abrir = new wxMenuItem(Menu1, ID_btnAbrirProyecto, _("Abrir proyecto"), wxEmptyString, wxITEM_NORMAL);
@@ -155,6 +154,9 @@ void CIAFrame::Onitem_nuevoSelected(wxCommandEvent& event)
     int filedia = FileDialog1->ShowModal();
     if(filedia == wxID_OK){
         if(proyecto->nuevo_proyecto(FileDialog1->GetFilename().mb_str(),"principal.cia",FileDialog1->GetDirectory())){
+
+            this->tree_main->AddPage(panels_main,FileDialog1->GetFilename(),false);
+
             wxMessageBox("Archivo creado","Archivo");
         }
         else{
